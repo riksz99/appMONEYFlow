@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>MoneyFlow - All-in-One Personal Finance Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Track income, budgets, investments, debts and goals in 10 currencies. Clean, fast personal finance app.">
+<style>
+:root{--bg:#f4f6f8;--c:#fff;--t:#17202b;--m:#5d6b7c;--p:#0f766e;--bt:#fff;--b:#e2e7ec;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1318;--c:#182029;--t:#e8edf2;--m:#93a0ae;--p:#2dd4bf;--bt:#04201d;--b:#28323c;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.w{max-width:1000px;margin:auto;padding:0 18px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}.logo{font-weight:800;font-size:20px;color:var(--p)}
+.lang button{border:1px solid var(--b);background:var(--c);color:var(--t);padding:6px 11px;cursor:pointer;font-size:13px}.lang button:first-child{border-radius:8px 0 0 8px}.lang button:last-child{border-radius:0 8px 8px 0}.lang .on{background:var(--p);color:var(--bt);border-color:var(--p)}
+.hero{text-align:center;padding:48px 0 36px}.badge{display:inline-block;font-size:13px;color:var(--p);border:1px solid var(--p);border-radius:20px;padding:3px 12px;margin-bottom:16px}
+h1{font-size:clamp(28px,5vw,46px);line-height:1.15;margin:0 0 14px}h2{font-size:clamp(22px,3.5vw,30px);margin:0 0 14px}
+.sub{color:var(--m);max-width:640px;margin:0 auto 24px;font-size:18px}
+.btn{display:inline-block;background:var(--p);color:var(--bt);text-decoration:none;padding:13px 26px;border-radius:12px;font-weight:700;margin:4px}.btn.s{background:none;color:var(--t);border:1px solid var(--b)}
+.sec{padding:34px 0}.card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.grid h3{margin:0 0 6px;font-size:17px}.grid p{margin:0;color:var(--m);font-size:15px}
+.hook{text-align:center;max-width:720px;margin:auto}.hook p{color:var(--m);font-size:18px}
+details{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:12px 16px;margin-bottom:10px}summary{cursor:pointer;font-weight:600}details p{color:var(--m);margin:8px 0 0}
+.fin{text-align:center;background:var(--c);border:1px solid var(--b);border-radius:18px;padding:40px 18px;margin:20px 0}
+footer{text-align:center;color:var(--m);font-size:13px;padding:24px 0 40px}
+</style></head><body><div class="w">
+<nav><div class="logo">MoneyFlow</div><div class="lang"><button data-l="en">EN</button><button data-l="id">ID</button></div></nav>
+<section class="hero"><span class="badge" data-t="badge"></span><h1 data-t="h1"></h1><p class="sub" data-t="sub"></p>
+<a class="btn buy" href="#" data-t="cta1"></a><a class="btn s" href="app.html" data-t="cta2"></a></section>
+<section class="sec hook"><h2 data-t="hk_t"></h2><p data-t="hk_p"></p></section>
+<section class="sec"><h2 style="text-align:center" data-t="f_t"></h2><div class="grid" id="feat"></div></section>
+<section class="sec"><h2 style="text-align:center" data-t="s_t"></h2><div class="grid" id="steps"></div></section>
+<section class="sec"><h2 style="text-align:center" data-t="q_t"></h2><div id="faq"></div></section>
+<section class="fin"><h2 data-t="fn_t"></h2><p class="sub" data-t="fn_p"></p><a class="btn buy" href="#" data-t="cta1"></a></section>
+<footer data-t="foot"></footer></div>
+<script>
+/* EDIT THIS: put your checkout / payment link here */
+const CHECKOUT_URL="#";
+const L={
+en:{badge:"Multi-currency personal finance app",h1:"See where every dollar goes, and finally keep more of it.",sub:"Track income, budgets, investments, debts and savings goals in 10 currencies, all in one clean dashboard.",cta1:"Get MoneyFlow",cta2:"Try the live demo",
+hk_t:"Where did your money go this month?",hk_p:"Most people don't have a spending problem. They have a visibility problem. MoneyFlow gives you a clear picture in minutes, so every decision gets easier.",
+f_t:"Your whole financial life in one place",
+f:[["Income & expenses","Log transactions in seconds with categories and notes."],["Multiple wallets","Cash, bank accounts, e-wallets and transfers between them."],["Smart budgets","Monthly limits per category with live progress bars."],["Investments","Stocks, funds, gold, crypto: gain/loss, ROI and allocation."],["Debts & receivables","Know what you owe, what you're owed and what's left."],["Savings goals","See how much to save each month to hit your target."],["Recurring bills","One tap records the payment and updates your balance."],["10 currencies","USD, EUR, GBP, JPY, SGD, MYR, AUD, CNY, SAR, IDR with automatic conversion."],["Calculators & health score","Compound growth, loans, emergency fund, retirement, 50/30/20 and a financial health score."]],
+s_t:"Start in 3 steps",s:[["1. Open the app","Works on phone and desktop, with light and dark mode."],["2. Add your wallets","Set your base currency and opening balances."],["3. Track and improve","Log transactions and watch your dashboard get clearer."]],
+q_t:"Questions",q:[["Where is my data stored?","In your own browser. Use Data & Backup to copy and restore it anytime."],["Are exchange rates live?","Rates are entered manually and come with approximate defaults. Update them in the Currency tab."],["Does it work on my phone?","Yes. It is responsive and works in any modern browser."]],
+fn_t:"Make next month your clearest one yet.",fn_p:"The best time to take control of your money was last year. The second best is today.",foot:"MoneyFlow. Data is stored locally in your browser."},
+id:{badge:"Aplikasi keuangan pribadi multi-mata uang",h1:"Tahu ke mana setiap rupiah pergi, lalu mulai menyimpan lebih banyak.",sub:"Pantau pemasukan, budget, investasi, utang, dan target tabungan dalam 10 mata uang, semua dalam satu dashboard yang rapi.",cta1:"Dapatkan MoneyFlow",cta2:"Coba demo langsung",
+hk_t:"Gaji sudah masuk, tapi kok cepat habis?",hk_p:"Kebanyakan orang bukan boros. Mereka hanya tidak punya gambaran jelas tentang uangnya. MoneyFlow memberi gambaran itu dalam hitungan menit, jadi setiap keputusan jadi lebih mudah.",
+f_t:"Seluruh kondisi keuangan lu dalam satu tempat",
+f:[["Pemasukan & pengeluaran","Catat transaksi dalam hitungan detik dengan kategori dan catatan."],["Banyak dompet","Tunai, rekening bank, e-wallet, plus transfer antar dompet."],["Budget pintar","Batas bulanan per kategori dengan progress bar."],["Investasi","Saham, reksa dana, emas, kripto: untung/rugi, ROI, dan alokasi."],["Utang & piutang","Tahu yang harus dibayar, yang harus ditagih, dan sisanya."],["Target tabungan","Lihat berapa yang perlu ditabung tiap bulan."],["Tagihan rutin","Satu klik tercatat dan saldo otomatis berkurang."],["10 mata uang","USD, EUR, GBP, JPY, SGD, MYR, AUD, CNY, SAR, IDR dengan konversi otomatis."],["Kalkulator & skor kesehatan","Bunga majemuk, cicilan, dana darurat, pensiun, 50/30/20, dan skor kesehatan keuangan."]],
+s_t:"Mulai dalam 3 langkah",s:[["1. Buka aplikasi","Jalan di HP dan komputer, dengan mode terang dan gelap."],["2. Tambah dompet","Pilih mata uang utama dan isi saldo awal."],["3. Catat dan perbaiki","Catat transaksi dan lihat dashboard makin jelas."]],
+q_t:"Pertanyaan umum",q:[["Data disimpan di mana?","Di browser lu sendiri. Pakai menu Data & Backup untuk menyalin dan memulihkannya kapan pun."],["Apakah kurs live?","Kurs diisi manual dan ada nilai bawaan perkiraan. Update di menu Currency."],["Bisa dipakai di HP?","Bisa. Tampilannya responsif dan jalan di browser modern mana pun."]],
+fn_t:"Jadikan bulan depan bulan paling jelas dalam keuangan lu.",fn_p:"Waktu terbaik untuk mengatur uang adalah setahun lalu. Waktu terbaik kedua adalah sekarang.",foot:"MoneyFlow. Data disimpan lokal di browser."}};
+function set(l){const d=L[l];document.documentElement.lang=l;document.querySelectorAll('[data-t]').forEach(e=>e.textContent=d[e.dataset.t]);
+const cards=a=>a.map(x=>`<div class="card"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join('');
+document.getElementById('feat').innerHTML=cards(d.f);document.getElementById('steps').innerHTML=cards(d.s);
+document.getElementById('faq').innerHTML=d.q.map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
+document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l==l));try{localStorage.setItem('lang',l)}catch(e){}}
+document.querySelectorAll('.buy').forEach(a=>a.href=CHECKOUT_URL);
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>set(b.dataset.l));
+let l0='en';try{l0=localStorage.getItem('lang')||((navigator.language||'').startsWith('id')?'id':'en')}catch(e){}set(l0);
+</script></body></html>
